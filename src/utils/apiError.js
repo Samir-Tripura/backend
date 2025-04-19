@@ -7,11 +7,11 @@ class ApiError extends Error {
 
     ){
         super(message)
-        this.statusCode = statusCode
+        this.statusCode = statusCode;
         this.data = null
-        this.message = message
+        this.message = message;
         this.success = false;
-        this.errors = errors
+        this.errors = errors;
 
         if(stack) {
             this.stack = stack
@@ -21,5 +21,21 @@ class ApiError extends Error {
         }
     }
 }
+export {ApiError};
 
-export {ApiError}
+
+
+
+/*class ApiError extends Error {
+    constructor(code, message) {
+        super(message); // Call the parent class constructor
+        this.code = code;
+
+        // Capture the stack trace (only works if this is an instance of Error)
+        if (Error.captureStackTrace) {
+            Error.captureStackTrace(this, this.constructor);
+        }
+    }
+}
+
+export { ApiError };*/
